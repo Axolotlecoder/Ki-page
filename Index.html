@@ -1,0 +1,70 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meine Links</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* CSS */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 p-6">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center">Wichtige Links</h1>
+
+    <div class="grid gap-4">
+      <!-- Hauptlinks -->
+      <a href="#" class="block border rounded-xl p-4 hover:bg-gray-100 transition">
+        <span class="text-lg font-medium">Hauptlink 1</span>
+        <p class="text-sm text-gray-500">Beschreibung oder Kategorie</p>
+      </a>
+      <a href="#" class="block border rounded-xl p-4 hover:bg-gray-100 transition">
+        <span class="text-lg font-medium">Hauptlink 2</span>
+        <p class="text-sm text-gray-500">Beschreibung oder Kategorie</p>
+      </a>
+      <a href="#" class="block border rounded-xl p-4 hover:bg-gray-100 transition">
+        <span class="text-lg font-medium">Hauptlink 3</span>
+        <p class="text-sm text-gray-500">Beschreibung oder Kategorie</p>
+      </a>
+
+      <!-- Seiten 1–4 als Sektionen -->
+      <details class="border rounded-xl p-4">
+        <summary class="text-lg font-semibold cursor-pointer">Seite 1</summary>
+        <div class="mt-2 space-y-2 pl-4">
+          <a href="#" class="block text-blue-600 hover:underline">Link A</a>
+          <a href="#" class="block text-blue-600 hover:underline">Link B</a>
+        </div>
+      </details>
+
+      <details class="border rounded-xl p-4">
+        <summary class="text-lg font-semibold cursor-pointer">Seite 2</summary>
+        <div class="mt-2 space-y-2 pl-4">
+          <a href="#" class="block text-blue-600 hover:underline">Link C</a>
+          <a href="#" class="block text-blue-600 hover:underline">Link D</a>
+        </div>
+      </details>
+
+      <details class="border rounded-xl p-4">
+        <summary class="text-lg font-semibold cursor-pointer">Seite 3</summary>
+        <div class="mt-2 space-y-2 pl-4">
+          <a href="#" class="block text-blue-600 hover:underline">Link E</a>
+          <a href="#" class="block text-blue-600 hover:underline">Link F</a>
+        </div>
+      </details>
+
+      <details class="border rounded-xl p-4">
+        <summary class="text-lg font-semibold cursor-pointer">Seite 4</summary>
+        <div class="mt-2 space-y-2 pl-4">
+          <a href="#" class="block text-blue-600 hover:underline">Link G</a>
+          <a href="#" class="block text-blue-600 hover:underline">Link H</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</body>
+</html>
