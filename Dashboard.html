@@ -2,135 +2,106 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body>
-    <div class="dashboard">
-        <header>
-            <h1>Anime Dashboard</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="#fav-animes">Lieblings-Animes</a></li>
-                <li><a href="#watchlist">Watchlist</a></li>
-                <li><a href="#stats">Statistiken</a></li>
-                <li><a href="#in-progress">Angefangene Animes</a></li>
-            </ul>
-        </nav>
-        <section id="fav-animes">
-            <h2>Lieblings-Animes</h2>
-            <ul>
-                <li>Attack on Titan</li>
-                <li>My Hero Academia</li>
-                <li>One Piece</li>
-            </ul>
-        </section>
-        <section id="watchlist">
-            <h2>Watchlist</h2>
-            <ul>
-                <li>Fullmetal Alchemist: Brotherhood</li>
-                <li>Demon Slayer</li>
-                <li>Death Note</li>
-            </ul>
-        </section>
-        <section id="stats">
-            <h2>Statistiken</h2>
-            <p>Gesamtanzahl der Animes: 10</p>
-            <p>Abgeschlossene Animes: 5</p>
-            <p>Animes in der Watchlist: 3</p>
-        </section>
-        <section id="in-progress">
-            <h2>Angefangene Animes</h2>
-            <ul>
-                <li>
-                    Naruto - Staffel 3, Folge 25
-                    <button onclick="markAsFinished('Naruto')">Abgeschlossen</button>
-                </li>
-                <li>
-                    Bleach - Staffel 1, Folge 45
-                    <button onclick="markAsFinished('Bleach')">Abgeschlossen</button>
-                </li>
-            </ul>
-        </section>
+<body class="bg-gray-900 text-white p-6 min-h-screen">
+
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold text-pink-500 fade-in">Mein Anime Dashboard</h1>
+    <p class="text-gray-400">Verfolge deinen Anime-Fortschritt und behalte den Überblick!</p>
+  </header>
+
+  <section class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 fade-in">
+    <!-- Lieblings-Animes -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg hover:scale-105 transition">
+      <h2 class="text-xl font-semibold mb-2">Lieblings-Animes</h2>
+      <ul class="space-y-1 text-pink-300 list-disc list-inside">
+        <li>Attack on Titan</li>
+        <li>Demon Slayer</li>
+        <li>One Piece</li>
+      </ul>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Watchlist -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg hover:scale-105 transition">
+      <h2 class="text-xl font-semibold mb-2">Watchlist</h2>
+      <ul class="space-y-1 text-blue-300 list-decimal list-inside">
+        <li>Jujutsu Kaisen</li>
+        <li>Chainsaw Man</li>
+        <li>Mob Psycho 100</li>
+      </ul>
+    </div>
+
+    <!-- Fortschritt -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg hover:scale-105 transition">
+      <h2 class="text-xl font-semibold mb-4">Fortschritt</h2>
+      <p class="text-gray-400 mb-2">5 von 12 Animes geschaut</p>
+      <div class="w-full bg-gray-700 rounded-full h-4">
+        <div class="bg-pink-500 h-4 rounded-full animate-pulse" style="width: 42%"></div>
+      </div>
+    </div>
+
+    <!-- Angefangene Animes -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg hover:scale-105 transition">
+      <h2 class="text-xl font-semibold mb-2">Angefangen</h2>
+      <ul class="text-yellow-300 list-disc list-inside">
+        <li>Bleach (Folge 67)</li>
+        <li>Black Clover (Folge 10)</li>
+      </ul>
+    </div>
+
+    <!-- Statistiken -->
+    <div class="bg-gray-800 p-4 rounded-2xl shadow-lg hover:scale-105 transition flex flex-col gap-2">
+      <h2 class="text-xl font-semibold mb-2">Statistik</h2>
+      <div class="flex justify-between">
+        <span>Gesehen:</span>
+        <span class="font-bold text-green-400">5</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Watchlist:</span>
+        <span class="font-bold text-blue-400">3</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Lieblings:</span>
+        <span class="font-bold text-pink-400">3</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mt-10 text-center text-sm text-gray-600 fade-in">
+    © 2025 Anime Dashboard by You
+  </footer>
+
+  <script>
+    // JS Animation on scroll
+    const cards = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('opacity-100');
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach(card => {
+      card.classList.add('opacity-0');
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
-
-<!-- CSS (styles.css) -->
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    background-color: #181818;
-    font-family: 'Arial', sans-serif;
-    color: #fff;
-    padding: 20px;
-}
-h1, h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-.dashboard {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-nav ul li {
-    margin: 0 10px;
-}
-nav ul li a {
-    color: #bbb;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-nav ul li a:hover {
-    color: #fff;
-}
-section {
-    margin-bottom: 30px;
-}
-section ul {
-    list-style-type: none;
-}
-section ul li {
-    margin: 10px 0;
-}
-button {
-    background-color: #444;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-button:hover {
-    background-color: #666;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    nav ul li {
-        margin: 5px 0;
-    }
-}
-
-<!-- JavaScript (script.js) -->
-function markAsFinished(anime) {
-    alert(anime + ' wurde als abgeschlossen markiert!');
-}
